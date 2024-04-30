@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ModelSemaine{% endblock %}
+
+{% block body %}
+    <h1>ModelSemaine</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ model_semaine.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ model_semaine.nom }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_model_semaine_index') }}">back to list</a>
+
+    <a href="{{ path('app_model_semaine_edit', {'id': model_semaine.id}) }}">edit</a>
+
+    {{ include('model_semaine/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TypeAbsence index{% endblock %}
+
+{% block body %}
+    <h1>TypeAbsence index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for type_absence in type_absences %}
+            <tr>
+                <td>{{ type_absence.id }}</td>
+                <td>{{ type_absence.nom }}</td>
+                <td>
+                    <a href="{{ path('app_type_absence_show', {'id': type_absence.id}) }}">show</a>
+                    <a href="{{ path('app_type_absence_edit', {'id': type_absence.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_type_absence_new') }}">Create new</a>
+{% endblock %}
